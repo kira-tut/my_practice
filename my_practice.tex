@@ -1,0 +1,289 @@
+\documentclass[12pt]{article}
+\usepackage[left=25mm, top=25mm, right=10mm, bottom=20mm, nohead, nofoot]{geometry}
+\usepackage[warn]{mathtext}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\begin{document}
+	
+	\input titlepage
+	
+	\newpage
+	\tableofcontents
+	
+	\newpage
+	\section{Цели и задачи практики}
+	
+	\subsection{Цели}
+	— развитие компетенций, способствующих успешному освоению материала бакалавриата и необходимых в будущей профессиональной деятельности.
+	
+	\subsection{Задачи}
+	\begin{enumerate} 
+		\item Знакомство с программными средствами, необходимыми в будущей профессиональной деятельности.
+		\item Развитие умения поиска необходимой информации в специальной литературе и других источниках.
+		\item Развитие навыков составления отчётов и презентации результатов.
+
+	\end{enumerate}
+	
+	\subsection{Индивидуальное задание}
+	\begin{enumerate} 
+		\item Изучить способы отображения математической информации в системе вёртски LATEX.
+		\item Изучить возможности системы контроля версий Git.
+		\item Научиться верстать математические тексты, содержащие формулы и графики в системе LATEX. Для этого, выполнить установку свободно распространяемого дистрибутива TeXLive и оболочки TeXStudio.
+		\item Оформить в системе LATEX типовые расчёты по курсе математического анализа согласно своему варианту.
+		\item Создать аккаунт на онлайн ресурсе GitHub и загрузить исходные tex–файлы и результат компиляции в формате pdf.
+	\end{enumerate}
+	
+	\newpage
+	\section{Отчёт}
+	Актуальность темы продиктована необходимостью владеть системой вёрстки LATEXи средой вёрстки TeXStudio для отображения текста, формул и графиков. Полученные в ходе практики навыки могут быть применены при написании курсовых проектов и дипломной работы, а также в дальнейшей профессиональной деятельности.
+	
+	Ситема вёрстки LATEX содержит большое количество инструментов (пакетов), упрощающих отображение информации в различных сферах инженерной и научной деятельности.
+	
+	\newpage
+	\section{Индивидуальное задание}
+
+	\subsection{Пределы и непрерывность}
+	
+	\subsubsection*{\center Задача №1}
+	{\bf Условие. ~}
+	Дана последовательность $ \{a_n\} = \frac {4 + 2 n}{1 - 3 n}$ и число $c = -\frac{2}{3}$. Доказать, что $$ \lim\limits_{n\rightarrow\infty} a_n = c,$$ а именно, для каждого сколь угодно малого числа $ \varepsilon > 0 $ найти наименьшее натуральное число $ N = N ( \varepsilon ) $ такое, что $ | a_n - c | < \varepsilon $ для всех номеров $ n> N ( \varepsilon ) $.
+		Заполнить таблицу
+	
+	\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{| c | c | c | c |}
+		\hline
+		$ \varepsilon $ & $ 0 {,} 1 $ & $ 0 {,} 01 $ & $ 0 {,} 001 $ \\  \hline
+		$ N ( \varepsilon ) $ & & & \\
+		\hline
+		\end{tabular}	
+	\end{center}
+	\end{table}
+
+	{ \bf Решение. ~}	
+	Рассмотрим неравенство $ a_n-c < \varepsilon , \, \forall \varepsilon > 0 $, учитывая выражение для $ a_n $ и значение $ c $ из условий варианта,
+	получим
+	$$
+	\biggl | \frac {4 + 2 n}{1 - 3 n} + \frac {2}{3} \biggr | < \varepsilon .
+	$$
+	Неравенство запишем в виде двойного неравентсва и приведём выражение под знаком модуля к общему знаменателю,
+	получим
+	$$
+	- \varepsilon < \frac{14}{3 (1 - 3 n)} < \varepsilon .
+	$$
+	Заметим, что правое неравенство выполнено для любого номера $ n \in  N $, поэтому будем рассматривать левое неравенство
+	$$
+	\frac {14}{3 (3 n - 1)} < \varepsilon .
+	$$
+	Выполнив цепочку преобразований, перепишем неравенство относительно $ n $, учитывая, что $ n \in N $, получим
+	$$
+	\begin{array}{c}
+	\frac {14}{3 (3 n - 1)} < \varepsilon , 							 \\ [ 8 pt]
+	3 n - 1 > \frac {14}{3 \varepsilon }, 							 \\ [ 8 pt]
+	n > \frac {1}{3} \biggl ( \frac {14}{3 \varepsilon } - 1 \biggr ), 	 \\ [ 8 pt]
+	n> \frac {27 + 3 \varepsilon } {9 \varepsilon }, 		 \\ [ 8 pt]
+	N ( \varepsilon ) = \Biggl [ \frac {14 + 3 \varepsilon }{9 \varepsilon } \, \Biggr ],
+	\end{array}
+	$$
+	где $ [ \phantom{a}] $ --- целая часть числа.
+	
+	\newpage
+	Заполним таблицу:
+	
+	\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{| c | c | c | c |}
+		\hline
+		$ \varepsilon $ & $ 0 {,} 1 $ & $ 0 {,} 01 $ & $ 0 {,} 001 $ \\  \hline
+		$ N ( \varepsilon ) $ & $ 15 $ & $ 155 $ & $ 1555 $ \\
+		\hline		
+		\end{tabular}	
+	\end{center}
+	\end{table}
+
+	\textbf{Проверка:}
+	$$
+	\begin{array} {l}
+	| a_{16} - c | = \frac {14} {141} < 0 {,} 1 ,	 \\ [ 10 pt]
+	| a_{156} - c | = \frac {14} {1401} < 0 {,} 01 , \\ [ 10 pt]
+	| a_{1556} - c | = \frac {14} {14001} < 0 {,} 001 .
+	\end{array}
+	$$
+	
+	\subsubsection*{\center Задача №2}
+	
+	{ \bf Условие. ~}
+	Вычислить пределы функций
+	
+	$$
+	\begin{array} {cc}
+	\text{ \bf (а):} & \lim\limits_{x \rightarrow -3} \frac {(x^2 +2x - 3)^2} {x^3 + 4x^2 - 9}, \\
+	\text{ \bf (б):} & \lim\limits_ {x \rightarrow + \infty } \frac {3x^2 - 2\sqrt [4] {x^8 - 8x}} {\sqrt {x^4 + 12} - 4x^2}, \\ 
+	\text{ \bf (в):} & \lim\limits_ {x \rightarrow 1} \biggl (\frac {\sqrt {x+1} - \sqrt{2}} {\sqrt [3] {x^2-1}} \biggr), \\ 
+	\text{ \bf (г):} & \lim\limits_ {x \rightarrow 0} \biggl ( \frac { \cos {x}} { \cos {2x}} \biggr ) ^ {\frac {1}{3x^2}}, \\ 
+	\text{ \bf (д):} & \lim \limits_ {x \rightarrow 0} \biggl ( \arctan \biggl ( \frac {x ^ 2- \sqrt {3}} {x ^ 3-1} \biggr ) \biggr ) ^ { \frac {x}{ \sin {(2x)}}}, \\ 
+	\text{ \bf (е):} & \lim \limits_ {x \rightarrow \pi} (\frac {1 + \cos{3x}} {\sin^2{7x}}).
+	\end{array}
+	$$
+	
+	{ \bf Решение. ~} \\
+	
+	\text { \bf (а):}
+	$$
+	\begin{array} {l}
+	\lim\limits_{x \rightarrow -3} \frac {(x^2 +2x - 3)^2} {x^3 + 4x^2 - 9} =
+	\lim\limits_{x \rightarrow -3} \frac {(x-1)^2 (x + 3)^2} {(x + 3)(x^2 + x - 3)} =
+	\lim\limits_{x \rightarrow -3} \frac {(x-1)^2 (x + 3)} {x^2 + x - 3} =
+	\frac {0} {3} = 0.
+	\end{array}
+	$$
+	
+	\text { \bf (б):}
+	$$
+	\begin{array}{l}
+	\lim\limits_ {x \rightarrow + \infty } \frac {3x^2 - 2\sqrt [4] {x^8 - 8x}} {\sqrt {x^4 + 12} - 4x^2} =
+	\lim\limits _ {x \rightarrow + \infty } \frac {3x^2 - 2x^2\sqrt [4] {1 - \frac {8}{x^7}}} {x^2\sqrt {1 + \frac {12}{x^4}} - 4x^2} =
+	\lim\limits _ {x \rightarrow + \infty } \frac {x^2 (3 - 2\sqrt [4] {1 - \frac {8}{x^7}})} {x^2(\sqrt {1 + \frac {12}{x^4}} - 4)} = -  \frac {1}{3}.
+	\end{array}
+	$$	
+	
+	\text { \bf (в):}
+	$$
+	\begin{array} {l}
+	\lim\limits_ {x \rightarrow 1} \frac {\sqrt {x+1} - \sqrt{2}} {\sqrt [3] {x^2-1}} =
+	\lim\limits_ {x \rightarrow 1} \frac {x - 1} {\sqrt [3] {x-1} \sqrt [3] {x + 1} (\sqrt {x+1} + \sqrt {2})}  =
+	\lim\limits_ {x \rightarrow 1} \frac {\sqrt [3] {(x-1)^2}} {\sqrt [3] {x + 1}(\sqrt {x+1} + \sqrt {2})} = 0.
+	\end{array}
+	$$
+	
+	\text { \bf (г):}	
+	$$
+	\begin{array} {l}
+	\lim\limits_ {x \rightarrow 0} \biggl ( \frac { \cos {x}} { \cos {2x}} \biggr ) ^ {\frac {1}{3x^2}} =
+	\lim\limits_ {x \rightarrow 0} \biggl ( \frac { 1 - (1 - \cos {x})} {1 - (1 - \cos {2x})} \biggr ) ^ {\frac {1}{3x^2}} =
+	\biggl |
+	\begin {array} {l}
+		x \rightarrow 0 \Rightarrow
+		1 - \cos{x} \rightarrow 0 \Rightarrow 1 - \cos{x} \sim \frac{x^2}{2} \\
+		x \rightarrow 0 \Rightarrow
+		1 - \cos{2x} \rightarrow 0 \Rightarrow 1 - \cos{2x} \sim \frac{4x^2}{2}
+	\end{array}
+	\biggr | = \\
+	\lim \limits_ {x \rightarrow 0} \biggl ( \frac { 1 - (1 - \frac{x^2}{2})} {1 - (1 - \frac{4x^2}{2})} \biggr ) ^ {\frac {1}{3x^2}} = 
+	\lim \limits_ {x \rightarrow 0} \biggl ( 1 + \frac {3x^2} {2(1-2x^2)} \biggr ) ^ {\frac {2(1-2x^2)} {3x^2} \frac {1}{2(1-2x^2)}} = 
+	e^ {\lim\limits_ {x \rightarrow 0} \biggl (\frac {1}{2(1-2x^2)} \biggr )} = 
+	e^ { \frac{1}{2} }. \\
+	\end{array}
+	$$
+	
+	\text { \bf (д):}
+	$$
+	\begin{array} {l}
+	\lim \limits_ {x \rightarrow 0+ } \biggl( \frac {2^{x^4} - 1} {\ln^2 (\cos {2x})} \biggr) ^ {\frac {x+2}{x}}  =
+	\biggl |
+	\begin{array} {l}
+		x \rightarrow 0 \Rightarrow
+		x^4 \rightarrow 0 \Rightarrow 2^{x^4} - 1 \sim x^4 \ln(2) \\
+		x \rightarrow 0 \Rightarrow
+		1 - \cos{2x} \rightarrow 0 \Rightarrow 1 - \cos{2x} \sim \frac{4x^2}{2} \Rightarrow\\
+		ln(1 - \frac{4x^2}{2}) \rightarrow 0 \Rightarrow ln(1 - \frac{4x^2}{2}) \sim -2x^2
+	\end{array}
+	\biggr | = \\
+	\lim \limits_ {x \rightarrow 0}  \biggl( \frac {x^4 \ln(2)} {4x^4} \biggr) ^ {\frac {x+2}{x}} =
+	\frac {\ln(2)}{4} ^ {\lim\limits_ {x \rightarrow 0} \frac {x+2}{x}}  =\infty.
+	\end{array}
+	$$
+	
+	\text { \bf (е):}
+	$$	
+	\begin{array} {l}
+	\lim \limits_ {x \rightarrow \pi} (\frac {1 + \cos{3x}} {\sin^2{7x}}) =
+	\biggl |
+	\begin {array} {l}
+		x \rightarrow \pi, t=x-\pi \Rightarrow t \rightarrow 0, x=t+\pi\\
+		\cos{3x} = \cos{3t+3\pi} = -\cos{3t} \\
+		\sin{7x} = \sin{7t+7\pi} = -\sin{7t}
+	\end{array}
+	\biggr | = \\
+	\lim \limits_ {t \rightarrow 0} \frac {1 - \cos{3t}} {\sin^2{7t}} =
+	\biggl |
+	\begin {array} {l}
+		t \rightarrow 0 \Rightarrow
+		1 - \cos{3t} \rightarrow 0 \Rightarrow 1 - \cos{3t} \sim \frac{9t^2}{2} \\
+		t \rightarrow 0 \Rightarrow
+		\sin{7t} \rightarrow 0 \Rightarrow \sin{7t} \sim 7t
+	\end{array}
+	\biggr | = \\
+	\lim \limits_ {t \rightarrow 0} \frac{\frac{9t^2}{2}}{49t^2} =  \frac{9}{98}.
+	\end{array}
+	$$
+	
+	\subsubsection*{\center Задача № 3.}
+	{ \bf Условие. ~} \\
+	\text { \bf (а):} Показать, что данные функции
+	$ f (x) $ и $ g (x) $ бесконечно малыми или бесконечно большими
+	при указанном стремлении аргумента. \\
+	\text { \bf (б):} Для каждой функции $ f (x) $ и $ g (x) $ записать главную часть (эквивалентную ей функцию) вида $ C (x-x_ 0 ) ^ { \alpha } $ при $ x \rightarrow x_ 0 $ или $ Cx ^ { \alpha } $
+	при $ x \rightarrow \infty $, указать их порядки малости (роста). \\
+	\text { \bf (в):} Сравнить функции $ f (x) $ и $ g (x) $ при указанном стремлении.
+	
+	\begin{center}
+		\begin{table}[h!]
+		\begin{tabular} {| c | c | c |}
+		\hline
+		№ Варианта & Функции $ f (x) $ и $ g (x) $ & Стремление \\ [6pt]
+		\hline
+		17 & $ f(x) = \sqrt {1 + \sqrt {x}} - 1, g(x) = \ln(1 +\sqrt{ x^2 + x}) $ & $ x \rightarrow 0+ $ \\
+		\hline
+		\end{tabular}
+		\end{table}
+	\end{center}
+
+	{ \bf Решение. ~} \\
+	\text{ \bf (а):} ~ Покажем, что $ f(x) $ и $ g(x) $ бесконечно малые функции,
+	$$
+	\begin{array} {cc}
+	\lim \limits_ {x \rightarrow 0+ } f (x) = \lim \limits_ {x \rightarrow 0+ } \sqrt {1 + \sqrt {x}} - 1 = 0. \\
+	\lim \limits_ {x \rightarrow 0+ } g (x) = \lim \limits_ {x \rightarrow 0+ } \ln(1 +\sqrt{ x^2 + x }) = 0.
+	\end{array}
+	$$	
+	\text{\bf (б):} ~ Так как $ f(x) $ и $ g(x) $ бесконечно малые функции, то эквивалентными им будут функции вида
+	$ Cx ^ { \alpha } $ при $ x \rightarrow 0+ $. Найдём эквивалентную для $ f(x) $ из условий
+	$$
+	\lim\limits_ {x \rightarrow 0+ } \frac {f (x)} {x ^ { \alpha }} = С,
+	$$
+	где $ C $ --- некоторая константа. Рассмотрим предел
+	$$
+	\lim\limits_ {x \rightarrow 0+ } \frac {f (x)} {x ^ { \alpha }} =
+	\lim\limits_ {x \rightarrow 0+ } \frac {\sqrt {1 + \sqrt {x}} - 1} { x ^ { \alpha }} =
+	\lim\limits_ {x \rightarrow 0+ } \frac {\sqrt {x}} {x ^ { \alpha} (\sqrt {1 + \sqrt {x}} + 1)}.
+	$$
+	При $ \alpha = \frac {1}{2} $ последний предел равен $\frac{1}{2}$, отсюда $ C = \frac {1}{2} $ и
+	$$
+	f (x) \sim \frac{1}{2} x^ \frac{1}{2} ~ \text{при} ~ x \rightarrow 0+.
+	$$
+	Аналогично, рассмотрим предел
+	$$
+	\lim\limits_ {x \rightarrow 0+ } \frac {g(x)} {x ^ { \alpha }} =
+	\lim\limits_ {x \rightarrow 0+ } \frac {\ln(1 +\sqrt{ x^2 + x })} {x ^ { \alpha }} =
+	\lim\limits_ {x \rightarrow 0+ } \frac {\sqrt{ x^2 + x }} {x ^{ \alpha }} =
+	\lim\limits_ {x \rightarrow 0+ } \frac {\sqrt {x (x + 1)}} {x ^ { \alpha}}.
+	$$
+	При $ \alpha = \frac{1}{2} $ последний предел равен $ 1 $ , отсюда $ C = 1 $ и
+	$$
+	g (x) \sim x^ \frac{1}{2} ~ \text{при} ~ x \rightarrow 0+.
+	$$
+	\text{\bf (в):} ~ Для сравнения функций $ f(x) $ и $ g(x) $ рассмотрим предел их отношения при указанном стремлении
+	$$
+	\lim\limits _ {x \rightarrow 0+ } \frac {f(x)} {g(x)}.
+	$$
+	Применим эквивалентности, найденные в (б), получим
+	$$
+	\lim\limits_ {x \rightarrow 0+ } \frac {f(x)} {g(x)} =
+	\lim\limits_ {x \rightarrow 0+ } \frac {\frac{1}{2} x^ \frac{1}{2}} {x^ \frac{1}{2}} = \frac{1}{2}.  
+	$$
+	Отсюда, $ f(x) $ и $ g(x) $ одного порядка малости.
+
+\end{document}
